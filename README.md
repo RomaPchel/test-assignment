@@ -6,13 +6,15 @@ AI-powered claim validation using Claude Vision API and multi-gate validation.
 
 ## Performance
 
-**100% accuracy** on benchmark (25/25 claims)
+**96-100% accuracy** on benchmark (24-25/25 claims across multiple runs)
 
 | Decision | Count | Precision | Recall |
 |----------|-------|-----------|--------|
 | APPROVE  | 7     | 100%      | 100%   |
 | DENY     | 13    | 100%      | 100%   |
 | UNCERTAIN| 5     | 100%      | 100%   |
+
+**Note:** Minor variance (1-2 claims) may occur between runs due to probabilistic LLM outputs on borderline confidence cases.
 
 ## Setup
 
