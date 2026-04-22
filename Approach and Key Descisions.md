@@ -4,7 +4,7 @@
 
 My first step was to get familiar with the data. I sat down and went over all 25 claims to understand what I was dealing with. The first question I raised: do I need to preprocess images before extracting data from them? Sometimes images can be too dark, have flashes of light or be blurry. In this case all images were clear enough to use straight away.
 
-The second thing I noticed was the different languages in the documents - French, Spanish, Italian, German. It was clear the system needed to be language agnostic from the start. Also needed to support different file types and image extensions.
+The second thing I noticed was the different languages in the documents - French, Spanish, Italian, German. It was clear the system needed to be language agnostic from the start. Also needed to support different file types and image extensions. I tested this with Ukrainian documents as well and the system handled them correctly.
 
 ## Pipeline Design
 
