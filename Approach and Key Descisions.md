@@ -8,7 +8,7 @@ The second thing I noticed was the different languages in the documents - French
 
 ## Pipeline Design
 
-I decided to use Claude Sonnet 4.5 since it has great OCR and reasoning capabilities. The pipeline has three main steps: extraction, validation gates, and decision making.
+I decided to use Claude Opus 4.7 since it has great OCR and reasoning capabilities. The pipeline has three main steps: extraction, validation gates, and decision making.
 
 ### 1. Extraction
 
