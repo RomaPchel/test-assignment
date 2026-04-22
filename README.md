@@ -2,7 +2,7 @@
 
 AI-powered claim validation using Claude Vision API and multi-gate validation.
 
-> **See [Approach and Key Descisions.md](Approach and Key Descisions.md) for detailed explanation of design decisions and implementation details.**
+> **See [Approach and Key Descisions.md](Approach%20and%20Key%20Descisions.md) for detailed explanation of design decisions and implementation details.**
 
 ## Performance
 
