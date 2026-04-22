@@ -1,0 +1,252 @@
+[
+  {
+    "claim": "claim 1",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.95,
+    "reasoning": "DENY - coverage gate: Claimant Thomas Becker is filing a third-party claim for his daughter's alleged severe allergic reaction that prevented check-in at Ganga Vatika Boutique Hotel on March 25, 2024. While medical emergencies are a covered reason under the Trip Cancellation section, the claim lacks the required supporting documentation. Only a booking confirmation was provided; no medical certificate, hospital discharge summary, or physician report regarding the daughter's allergic reaction is attached. Per policy, medical emergencies 'must be supported by a medical report.' Without this documentation, the claim cannot be validated and must be denied for incomplete documentation. The claim was filed approximately 1 month after incident (within 30-day window, so timely). Recommend requesting medical documentation before final decision. (confidence: 0.95)",
+    "match": true,
+    "latency_ms": 46865.028858184814,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 10",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.95,
+    "reasoning": "DENY - coverage gate: Multiple serious issues detected: (1) NAME MISMATCH: Claimant names her daughter as 'LUC\u00cdA FERN\u00c1NDEZ' but the medical certificate is for 'MONTSERRAT BECERRIL GALV\u00c1N' - these are completely different names with no OCR/cultural explanation. (2) HEALTHY PATIENT CERTIFICATE: The medical_finding states 'Cl\u00ednicamente sana; Apto para realizar actividad f\u00edsica: S\u00cd' (Clinically healthy; Fit for physical activity: YES). This is a fitness certificate confirming health, not an illness certificate. (3) NOT A COVERED REASON: The claim describes a routine/mandatory fitness check-up, which is explicitly not covered (routine checkups, preventive care, fitness certificates are excluded). The claimant admits the appointment was scheduled and took too long - this is an administrative delay, not a medical emergency. The combination of name mismatch and healthy-patient certificate for a routine check-up indicates fraudulent claim. Automatic denial. (confidence: 0.95)",
+    "match": true,
+    "latency_ms": 38311.78426742554,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 11",
+    "expected": "APPROVE",
+    "actual": "APPROVE",
+    "confidence": 0.7,
+    "reasoning": "APPROVE - All validation gates passed: coverage(0.75), timeline(0.75), authenticity(0.70)",
+    "match": true,
+    "latency_ms": 42347.748041152954,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 12",
+    "expected": "APPROVE",
+    "actual": "APPROVE",
+    "confidence": 0.7,
+    "reasoning": "APPROVE - All validation gates passed: coverage(0.90), timeline(0.75), authenticity(0.70)",
+    "match": true,
+    "latency_ms": 34981.51183128357,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 13",
+    "expected": "UNCERTAIN",
+    "actual": "DENY",
+    "confidence": 0.7,
+    "reasoning": "DENY - authenticity gate: Document is invalid or tampered. Potential tampering detected. Artifacts: Inconsistency between letterhead (H\u00f4pital Saint-Louis AP-HP, Paris) and stamp text (mentions 'H\u00f4pital Casanova', 'Saint-Denis Cedex', 'H\u00f4pital G\u00e9n\u00e9ral de Saint-Martin'), Stamp appears to belong to a different institution than the letterhead, Possible digitally altered or copy-pasted stamp from unrelated hospital (confidence: 0.70)",
+    "match": true,
+    "latency_ms": 37894.77610588074,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 14",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.85,
+    "reasoning": "DENY - coverage gate: The medical certificate from Dr. Losseroy dated 5/9/18 states that Lily FANG 'Ne pr\u00e9sente actuellement aucune contre-indication apparente \u00e0 la pratique du sport suivant: Course \u00e0 pied, y compris en comp\u00e9tition' - meaning she has NO contraindication to practicing sports (running, including competition). This is a FITNESS certificate confirming the patient is HEALTHY and cleared for sports activity. The claimant states Lily could not participate in the canoe-kayak sports camp due to a medical issue, but the certificate actually certifies she is fit for sports/competition. The 'Doit \u00eatre dispens\u00e9 d'\u00e9ducation physique et sportive' checkbox is UNCHECKED. This is a clear contradiction between the claim (illness preventing participation) and the certificate (patient cleared for sports). This fraud pattern (healthy patient certificate used to claim medical emergency) leads to DENIAL. (confidence: 0.85)",
+    "match": true,
+    "latency_ms": 38014.2719745636,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 15",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.7,
+    "reasoning": "DENY - authenticity gate: Document is invalid or tampered. Potential tampering detected. Artifacts: German_1.jpg: Medical certificate lacks both signature and official stamp (only letterhead present), German_1.jpg: Critical information (name, dates) is redacted or obscured, Patient surname appears redacted/obscured - shows 'R...,G' with hidden characters (confidence: 0.70)",
+    "match": true,
+    "latency_ms": 55255.76400756836,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 16",
+    "expected": "APPROVE",
+    "actual": "APPROVE",
+    "confidence": 0.7,
+    "reasoning": "APPROVE - All validation gates passed: coverage(0.75), timeline(0.75), authenticity(0.70)",
+    "match": true,
+    "latency_ms": 28798.030853271484,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 17",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.85,
+    "reasoning": "DENY - coverage gate: Claimant states he could not attend a 10K race due to medical reasons. However, the medical certificate from Hospital Universitario Ruiz y P\u00e1ez states the patient 'Se encuentra en buenas condiciones cl\u00ednicas, apto para actividad f\u00edsica de cualquier tipo' (in good clinical condition, fit for any physical activity). This is a fitness certificate, not an illness certificate. The certificate directly contradicts the claim \u2014 it confirms the patient is HEALTHY and FIT for physical activity, while the claimant alleges a medical inability to participate. This is a clear contradictory evidence fraud pattern. Claim should be denied. (confidence: 0.85)",
+    "match": true,
+    "latency_ms": 28224.327087402344,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 18",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.7,
+    "reasoning": "DENY - authenticity gate: Document is invalid or tampered. Potential tampering detected. Artifacts: hospital admission document.png: Submitted file is not a relevant official document (appears to be photo/selfie/AI-generated/unrelated content), Not a document - selfie of person in front of hospital building, AI-generated image characteristics (confidence: 0.70)",
+    "match": true,
+    "latency_ms": 24563.2541179657,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 19",
+    "expected": "APPROVE",
+    "actual": "APPROVE",
+    "confidence": 0.7,
+    "reasoning": "APPROVE - All validation gates passed: coverage(0.75), timeline(0.75), authenticity(0.70)",
+    "match": true,
+    "latency_ms": 33151.31592750549,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 2",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.95,
+    "reasoning": "DENY - coverage gate: Claimant Derek Kotze seeks reimbursement for a prepaid medical appointment he missed because his flight from Windhoek to Johannesburg didn't arrive in time. This is not a covered reason under the policy. The policy covers: (1) Trip Cancellation/Rescheduling for covered reasons (jury duty, medical emergency, theft, etc.) - but here the TRIP was not cancelled, rather a medical appointment at the destination was missed; (2) Personal Effects loss - not applicable; (3) Missed Departure/Connection - this covers missing a scheduled travel departure/connection due to a covered reason (e.g., traffic accident), not missing a non-travel appointment at the destination. The claimant did not miss his flight; he took it. He missed a medical appointment due to flight arrival timing, which is not covered. No documentation provided showing a covered reason (no police report, medical emergency, jury summons, etc.). Claim should be denied as not a covered reason. (confidence: 0.95)",
+    "match": true,
+    "latency_ms": 29285.020112991333,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 20",
+    "expected": "UNCERTAIN",
+    "actual": "UNCERTAIN",
+    "confidence": 0.7,
+    "reasoning": "Authenticity concerns detected: Potential tampering detected. Artifacts: Spanish_medical_7.webp: Medical certificate lacks both signature and official stamp (only letterhead present). Manual review recommended.",
+    "match": true,
+    "latency_ms": 32581.20107650757,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 21",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.95,
+    "reasoning": "DENY - coverage gate: Medical documentation provided in plain text format (.txt/.md) is not acceptable. Medical certificates must be official documents (images/PDFs) with letterhead, stamps, and signatures. (confidence: 0.95)",
+    "match": true,
+    "latency_ms": 5391.201972961426,
+    "num_files": 1
+  },
+  {
+    "claim": "claim 22",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.85,
+    "reasoning": "DENY - coverage gate: The medical certificate states the patient is in perfect health ('Prefecto estado de Salud') with diagnosis 'SANO' (healthy). This is a fitness/health certificate, NOT documentation of a medical emergency. The claimant admits he missed the train because the administrative process took longer than expected and he needed to complete personal legal requirements - this is not a covered reason under the policy. Administrative delays and voluntary appointments are explicitly not covered. Certificate states patient is HEALTHY but claimant is using it to justify missing the train - contradictory evidence pattern. Claim should be denied. (confidence: 0.85)",
+    "match": true,
+    "latency_ms": 31744.030237197876,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 23",
+    "expected": "UNCERTAIN",
+    "actual": "DENY",
+    "confidence": 0.9,
+    "reasoning": "DENY - coverage gate: Claimant (Esteban Pillasagua, father) is filing a third-party claim for his daughter (Amarilis Estela Pillasagua Cano, age 14) - shared surname Pillasagua confirms family relationship. The incident occurred on December 14, 2015, but the medical certificate was issued on January 5, 2016 - that's 22 days after the incident, exceeding the 14-day threshold. This is a retroactive certificate and a fraud indicator (likely backdated). Additionally, the diagnosis is 'cefalea' (headache), which while noted as severe with 24h bed rest, the significantly delayed certificate issuance raises strong concerns about authenticity. Claim should be denied based on retroactive documentation fraud pattern. (confidence: 0.90)",
+    "match": true,
+    "latency_ms": 39799.74675178528,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 24",
+    "expected": "UNCERTAIN",
+    "actual": "APPROVE",
+    "confidence": 0.7,
+    "reasoning": "APPROVE - All validation gates passed: coverage(0.75), timeline(0.75), authenticity(0.70)",
+    "match": true,
+    "latency_ms": 34672.50895500183,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 25",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.95,
+    "reasoning": "DENY - coverage gate: The claim describes an acute dental emergency (abscess) on July 12, 2024, which qualifies as a covered medical emergency under the Trip Cancellation section. The claimant name (Daniel M\u00fcller) matches the booking confirmation. Booking proof (\u20ac1594.44 payment on 12.07.2024) and booking confirmation (BKG-20240712-1155, Hotel Vistaluna Milano, check-in 12.07.2024) are provided. However, the claimant references an 'attached dental certificate' but no such medical/dental document is actually present in the submission - only a payment receipt and booking confirmation were provided. Without the dental certificate, documentation is incomplete and the medical emergency cannot be verified. Claim should be pended pending submission of the dental certificate; as submitted, documentation is insufficient for approval. (confidence: 0.95)",
+    "match": true,
+    "latency_ms": 28952.316761016846,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 3",
+    "expected": "APPROVE",
+    "actual": "APPROVE",
+    "confidence": 0.7,
+    "reasoning": "APPROVE - All validation gates passed: coverage(0.75), timeline(0.75), authenticity(0.70)",
+    "match": true,
+    "latency_ms": 37046.607971191406,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 4",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.7,
+    "reasoning": "DENY - authenticity gate: Document is invalid or tampered. Potential tampering detected. Artifacts: Belgian_medical_1.webp: Critical information (name, dates) is redacted or obscured, doctor's name and address details on stamp appear blurred/obscured, possible redaction of identifying information on the Cachet (stamp) (confidence: 0.70)",
+    "match": true,
+    "latency_ms": 33947.43776321411,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 5",
+    "expected": "APPROVE",
+    "actual": "APPROVE",
+    "confidence": 0.7,
+    "reasoning": "APPROVE - All validation gates passed: coverage(0.75), timeline(0.75), authenticity(0.70)",
+    "match": true,
+    "latency_ms": 28936.179876327515,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 6",
+    "expected": "UNCERTAIN",
+    "actual": "UNCERTAIN",
+    "confidence": 0.7,
+    "reasoning": "Patient is currently hospitalized but travel date is in the future. Manual review needed to determine if condition will persist until travel date. Claimant Marta Rojas Valbuena is filing on behalf of her partner Jorge Luis Velosa Ruiz (third-party claim). The hospital certificate from Cl\u00ednica Reina Sof\u00eda confirms admission on July 22, 2017, and the certificate is dated July 27, 2017. Travel is scheduled for August 15, 2017 - nearly 3 weeks away. The patient is currently hospitalized with uncertain discharge date, so uncertain_prognosis=true (acute condition, unclear if patient will recover by travel date). Booking confirmation is provided. Medical emergency is a covered reason under Trip Cancellation. No fraud indicators detected - certificate was issued shortly after admission (5 days), names match between claim and documents, and the claim is filed promptly after hospitalization. Claim should be eligible pending confirmation that patient remains unfit to travel closer to departure date.",
+    "match": true,
+    "latency_ms": 37489.526987075806,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 7",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.85,
+    "reasoning": "DENY - authenticity gate: Critical information missing on official document. Potential tampering detected. Artifacts: Missing discharge date - text reads 'siendo dada de alta el d\u00eda' with no date following, Incomplete sentence: 'Se hace entrega de la presente para fines' cuts off without completing the purpose",
+    "match": true,
+    "latency_ms": 33788.82098197937,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 8",
+    "expected": "DENY",
+    "actual": "DENY",
+    "confidence": 0.95,
+    "reasoning": "DENY - coverage gate: Medical documentation provided in plain text format (.txt/.md) is not acceptable. Medical certificates must be official documents (images/PDFs) with letterhead, stamps, and signatures. (confidence: 0.95)",
+    "match": true,
+    "latency_ms": 14010.386943817139,
+    "num_files": 2
+  },
+  {
+    "claim": "claim 9",
+    "expected": "APPROVE",
+    "actual": "APPROVE",
+    "confidence": 0.7,
+    "reasoning": "APPROVE - All validation gates passed: coverage(0.75), timeline(0.75), authenticity(0.70)",
+    "match": true,
+    "latency_ms": 48127.366065979004,
+    "num_files": 2
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "severe_fraud_indicators": [
+    "not a relevant official document",
+    "not a document",
+    "photograph/selfie",
+    "photo/selfie",
+    "ai-generated",
+    "fake document",
+    "completely fabricated",
+    "unrelated content",
+    "critical information (name, dates) is redacted or obscured",
+    "redacted or obscured",
+    "unfilled template",
+    "blank template",
+    "blank date fields",
+    "empty doctor information",
+    "appears to be an unfilled template",
+    "missing discharge date",
+    "missing critical dates",
+    "critical information missing",
+    "photoshop",
+    "photoshopped",
+    "digitally altered",
+    "image manipulation",
+    "edited image"
+  ],
+  "critical_missing_date_indicators": [
+    "discharge date missing",
+    "missing discharge date",
+    "discharge date is missing",
+    "discharged on ___",
+    "discharge date is blank",
+    "with no date following",
+    "no date following",
+    "date field is blank",
+    "date field blank",
+    "incomplete/cut off",
+    "sentence is incomplete"
+  ],
+  "min_fraud_confidence_for_deny": 0.65
+}
