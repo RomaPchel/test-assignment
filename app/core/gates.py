@@ -8,7 +8,8 @@ from typing import List, Optional, Tuple
 import anthropic
 
 from app.models.schemas import ExtractedDocument, GateResult, PipelineTrace
-from app.utils.config import ANTHROPIC_API_KEY, GATE_TIMEOUT_SECONDS, MODEL_NAME
+from app.utils.business_rules import GATE_TIMEOUT_SECONDS
+from app.utils.config import ANTHROPIC_API_KEY, MODEL_NAME
 from app.utils import business_rules as rules
 
 def _read_prompt(prompt_name: str) -> str:

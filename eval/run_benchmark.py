@@ -43,7 +43,7 @@ async def process_single_claim(claim_dir: Path) -> Dict:
 
         latency_ms = (time.time() - start_time) * 1000
 
-        if response.status_code != 200:
+        if response.status_code not in (200, 201):
             return {
                 "claim": claim_name,
                 "expected": expected["decision"],

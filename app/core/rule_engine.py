@@ -1,7 +1,7 @@
 from typing import List, Tuple, Literal
 from app.models.schemas import GateResult
-from app.utils.config import APPROVE_THRESHOLD, DENY_THRESHOLD
 from app.utils import business_rules as rules
+from app.utils.business_rules import DENY_THRESHOLD, APPROVE_THRESHOLD
 from app.utils.fraud_detector import get_severe_fraud_indicators, get_critical_date_indicators, get_min_fraud_confidence
 
 Decision = Literal["APPROVE", "DENY", "UNCERTAIN"]

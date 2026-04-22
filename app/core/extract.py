@@ -8,7 +8,8 @@ import anthropic
 from PIL import Image
 
 from app.models.schemas import ExtractedDocument, PipelineTrace
-from app.utils.config import MODEL_NAME, ANTHROPIC_API_KEY, EXTRACTION_TIMEOUT_SECONDS
+from app.utils.business_rules import EXTRACTION_TIMEOUT_SECONDS
+from app.utils.config import MODEL_NAME, ANTHROPIC_API_KEY
 from app.utils.errors import ExtractionFailure, MalformedModelOutput
 from app.utils import business_rules as rules
 
