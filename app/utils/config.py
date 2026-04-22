@@ -11,10 +11,3 @@ ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
 
 if not ANTHROPIC_API_KEY:
     raise ValueError("ANTHROPIC_API_KEY environment variable is required. Set it in .env file or environment.")
-
-from app.utils.business_rules import (
-    APPROVE_THRESHOLD,
-    DENY_THRESHOLD,
-    GATE_TIMEOUT_SECONDS,
-    EXTRACTION_TIMEOUT_SECONDS,
-)
