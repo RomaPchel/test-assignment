@@ -95,12 +95,9 @@ async def extract_document(file_path: str) -> Tuple[ExtractedDocument, PipelineT
     latency_ms = (time.time() - start_time) * 1000
     trace = PipelineTrace(
         step="extract_document",
-        inputs_hash="",
-        outputs_hash="",
         model=MODEL_NAME,
         model_version=MODEL_NAME,
-        latency_ms=latency_ms,
-        cache_hit=False
+        latency_ms=latency_ms
     )
 
     return extracted_doc, trace

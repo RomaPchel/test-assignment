@@ -122,7 +122,7 @@ async def timeline_gate(extracted_docs: List[ExtractedDocument], claim_descripti
                         signals={"incident_date": str(incident_date.date()), "travel_date": str(travel_date.date()), "current_date": str(current_date.date()), "days_until_travel": days_until_travel, "may_be_premature": True},
                         reason=f"Claim filed {days_until_travel} days before travel. Manual review recommended to confirm condition will persist."
                     )
-                    trace = PipelineTrace(step="timeline_gate", inputs_hash="", outputs_hash="", model=None, model_version=None, latency_ms=(time.time() - start_time) * 1000, cache_hit=False)
+                    trace = PipelineTrace(step="timeline_gate", model=None, model_version=None, latency_ms=(time.time() - start_time) * 1000)
                     return result, trace
 
         result = GateResult(
@@ -133,7 +133,7 @@ async def timeline_gate(extracted_docs: List[ExtractedDocument], claim_descripti
             reason=f"Incident date {incident_date.date()} {'falls within' if within_window else 'is outside'} policy period ({policy_start.date()} to {policy_end.date() if policy_end else 'ongoing'})"
         )
     
-    trace = PipelineTrace(step="timeline_gate", inputs_hash="", outputs_hash="", model=None, model_version=None, latency_ms=(time.time() - start_time) * 1000, cache_hit=False)
+    trace = PipelineTrace(step="timeline_gate", model=None, model_version=None, latency_ms=(time.time() - start_time) * 1000)
     return result, trace
 
 async def coverage_gate(extracted_docs: List[ExtractedDocument], claim_description: str, file_paths: List[str] = None) -> Tuple[GateResult, PipelineTrace]:
@@ -168,7 +168,7 @@ async def coverage_gate(extracted_docs: List[ExtractedDocument], claim_descripti
                         signals={"incident_type": "medical", "invalid_document_format": "text_only", "covered_reason": False},
                         reason="Medical documentation provided in plain text format (.txt/.md) is not acceptable. Medical certificates must be official documents (images/PDFs) with letterhead, stamps, and signatures."
                     )
-                    trace = PipelineTrace(step="coverage_gate", inputs_hash="", outputs_hash="", model=None, model_version=None, latency_ms=(time.time() - start_time) * 1000, cache_hit=False)
+                    trace = PipelineTrace(step="coverage_gate", model=None, model_version=None, latency_ms=(time.time() - start_time) * 1000)
                     return result, trace
 
             if incident_type_check == "medical" and not medical_docs:
@@ -186,7 +186,7 @@ async def coverage_gate(extracted_docs: List[ExtractedDocument], claim_descripti
                         signals={"incident_type": "medical", "documentation_present": False, "covered_reason": False},
                         reason="Claim describes medical emergency but no medical documentation (certificate, hospital records) was submitted. Required documentation is missing."
                     )
-                    trace = PipelineTrace(step="coverage_gate", inputs_hash="", outputs_hash="", model=None, model_version=None, latency_ms=(time.time() - start_time) * 1000, cache_hit=False)
+                    trace = PipelineTrace(step="coverage_gate", model=None, model_version=None, latency_ms=(time.time() - start_time) * 1000)
                     return result, trace
 
         system_prompt = _read_prompt("classify_incident")
@@ -271,7 +271,7 @@ async def coverage_gate(extracted_docs: List[ExtractedDocument], claim_descripti
     except Exception as e:
         result = GateResult(gate_name="coverage", passed=False, confidence=0.0, signals={}, reason="Gate execution error", error=str(e))
     
-    trace = PipelineTrace(step="coverage_gate", inputs_hash="", outputs_hash="", model=MODEL_NAME, model_version=MODEL_NAME, latency_ms=(time.time() - start_time) * 1000, cache_hit=False)
+    trace = PipelineTrace(step="coverage_gate", model=MODEL_NAME, model_version=MODEL_NAME, latency_ms=(time.time() - start_time) * 1000)
     return result, trace
 
 async def _check_single_image(img_path: str, system_prompt: str, client: anthropic.Anthropic) -> dict:
@@ -350,7 +350,7 @@ async def authenticity_gate(image_paths: List[str]) -> Tuple[GateResult, Pipelin
             signals={"images_checked": 0},
             reason="No images to verify"
         )
-        trace = PipelineTrace(step="authenticity_gate", inputs_hash="", outputs_hash="", model=MODEL_NAME, model_version=MODEL_NAME, latency_ms=(time.time() - start_time) * 1000, cache_hit=False)
+        trace = PipelineTrace(step="authenticity_gate", model=MODEL_NAME, model_version=MODEL_NAME, latency_ms=(time.time() - start_time) * 1000)
         return result, trace
 
     system_prompt = _read_prompt("authenticity_check")
@@ -433,5 +433,5 @@ async def authenticity_gate(image_paths: List[str]) -> Tuple[GateResult, Pipelin
             reason=f"No obvious tampering detected in {len(image_paths)} image(s)"
         )
 
-    trace = PipelineTrace(step="authenticity_gate", inputs_hash="", outputs_hash="", model=MODEL_NAME, model_version=MODEL_NAME, latency_ms=(time.time() - start_time) * 1000, cache_hit=False)
+    trace = PipelineTrace(step="authenticity_gate", model=MODEL_NAME, model_version=MODEL_NAME, latency_ms=(time.time() - start_time) * 1000)
     return gate_result, trace

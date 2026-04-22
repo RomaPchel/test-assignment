@@ -18,9 +18,6 @@ class GateResult(BaseModel):
 
 class PipelineTrace(BaseModel):
     step: str
-    inputs_hash: str
-    outputs_hash: str
     model: Optional[str] = None
     model_version: Optional[str] = None
     latency_ms: float
-    cache_hit: bool = False
